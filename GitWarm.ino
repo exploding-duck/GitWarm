@@ -3,7 +3,7 @@
 
 #define DEBUG true 
 
-// Pin assignments
+// pins
 #define ONE_WIRE_BUS 10
 #define BUTTON_PIN 9
 #define HEATER_PIN 8
