@@ -82,6 +82,10 @@ void loop() {
     currentTempF = sensors.getTempFByIndex(0);
     sensors.requestTemperatures(); 
     lastTempRequest = now;
+    if (currentTempF < -100 || currentTempF > 200) {
+      allOff();
+      return;
+    }
   }
 
   if (mode == 0) {
