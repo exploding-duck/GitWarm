@@ -16,8 +16,8 @@
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
 
-float tempLow[4]  = {0, 93.0, 96.6, 100.2};
-float tempHigh[4] = {0, 95.0, 98.6, 102.2};
+float tempLow[4]  = {0, 66.0, 78.0, 91.0};
+float tempHigh[4] = {0, 68.0, 80.0, 93.0};
 int dutyCycles[4] = {0, 20, 50, 80}; 
 
 int mode = 0; 
