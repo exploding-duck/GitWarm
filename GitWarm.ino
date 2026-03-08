@@ -62,13 +62,17 @@ void loop() {
   lastButtonState = reading;
 
   // battery monitoring
-  if (now - lastBatteryCheck >= 2000) {
+  if (now - lastBatteryCheck >= 15000) {
+    // temporarily shut down heater
+    bool heaterWasOn = digitalRead(HEATER_PIN);
+    digitalWrite(HEATER_PIN, LOW);
+    delay(1000);  // allow battery voltage to stabilize
     int raw = analogRead(BATTERY_PIN);
-    
     batteryVoltage = raw * (3.3 / 1024.0) * 4.0;
-    
     digitalWrite(LED_LOWBAT, (batteryVoltage < 10.8) ? HIGH : LOW);
-    lastBatteryCheck = now;
+    // restore heater state
+    digitalWrite(HEATER_PIN, heaterWasOn);
+    lastBatteryCheck = millis();
   }
 
   // temp update
