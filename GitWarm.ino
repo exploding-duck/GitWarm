@@ -72,7 +72,7 @@ void loop() {
     batteryVoltage = raw * (3.3 / 1024.0) * 4.0;
     digitalWrite(LED_LOWBAT, (batteryVoltage < 10.8) ? HIGH : LOW);
     // restore heater state
-    digitalWrite(HEATER_PIN, heaterWasOn);
+    digitalWrite(HEATER_PIN, LOW);
     lastToggleTime = millis();
     lastBatteryCheck = millis();
   }
